@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Capture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>Class Capture</h1>
+            <p>Generate notes automatically from your lecture videos and recordings.</p>
+        </header>
+        <main>
+            <section class="video-section">
+                <h2>Upload or Record Lecture</h2>
+                <div class="upload-container">
+                    <input type="file" id="fileInput" accept="video/*">
+                    <button onclick="handleUpload()">Upload Video</button>
+                    <button onclick="handleRecord()">Record Live Lecture</button>
+                </div>
+            </section>
+
+            <section class="notes-section">
+                <h2>Generated Notes</h2>
+                <div class="notes-container" id="notesContainer">AI-generated notes will appear here.</div>
+            </section>
+
+            <section class="extras-section">
+                <h2>Additional Features</h2>
+                <ul>
+                    <li><a href="#cheatSheets">Cheat Sheets</a></li>
+                    <li><a href="#toDoList" onclick="scrollToSection(event, 'toDoList')">To-Do Lists</a></li>
+                    <li><a href="#quizFlashcards">Quiz & Flashcards Generation</a></li>
+                    <li><a href="#highlightingAnnotation">Highlighting & Annotation</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <section id="toDoList" class="todo-section">
+            <h2>To-Do List</h2>
+            <div class="todo-container">
+                <input type="text" id="newTaskInput" placeholder="Add new task">
+                <input type="date" id="taskDueDate">
+                <select id="taskPriority">
+                    <option value="low">Low Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+                <button onclick="addTask()">Add Task</button>
+
+                <div class="filter-container">
+                    <label for="filterStatus">Filter:</label>
+                    <select id="filterStatus" onchange="filterTasks()">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+
+                <ul id="todoList">
+                    <!-- List of tasks will be dynamically added here -->
+                </ul>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>&copy; 2024 Class Capture. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
